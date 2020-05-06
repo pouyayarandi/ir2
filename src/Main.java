@@ -6,10 +6,8 @@ public class Main {
 
         News[] news;
         news = DataManager.provideData();
-        IndexManager indexManager = new IndexManager();
+        IndexManager indexManager = new IndexManager(ClientManager.shared.client);
 
-        System.out.println("Config index...");
-        indexManager.configIndex();
         System.out.println("Index news...");
         indexManager.indexNews(news);
 
