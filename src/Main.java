@@ -1,7 +1,4 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Main {
 
@@ -11,10 +8,9 @@ public class Main {
         news = DataManager.provideData();
         IndexManager indexManager = new IndexManager();
 
-        List<News> list = new ArrayList<>();
-        list.addAll(Arrays.asList(news).subList(0, 1));
-
-
+        System.out.println("Config index...");
+        indexManager.configIndex();
+        System.out.println("Index news...");
         indexManager.indexNews(news);
 
         indexManager.closeConnection();
