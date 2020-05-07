@@ -29,9 +29,7 @@ public class IndexManager {
 
     void startIndex(News[] newsArray) throws IOException {
         boolean isExist = client.indices().exists(new GetIndexRequest(News.typeName), RequestOptions.DEFAULT);
-        if (isExist) return;
-
-        indexNews(newsArray);
+        if (!isExist) indexNews(newsArray);
         configIndex();
     }
 
